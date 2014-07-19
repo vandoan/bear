@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140719031918) do
+ActiveRecord::Schema.define(version: 20140719043748) do
 
   create_table "restaurants", force: true do |t|
     t.string   "name"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20140719031918) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
 end
