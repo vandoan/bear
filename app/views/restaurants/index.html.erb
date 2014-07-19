@@ -33,7 +33,7 @@
         <td><%= restaurant.description %></td>
         <td><%= restaurant.phone %></td>
         <td><%= restaurant.created_at.strftime("%a %b %y")  %></td>
-       
+       <td><%= image_tag(restaurant.menu_url, :width => 100) if restaurant.menu.present? %></td>
         <td>      
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_restaurant_path(restaurant), :class => 'btn btn-mini' %>
