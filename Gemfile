@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+gem 'rmagick'
+gem 'carrierwave'
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 
