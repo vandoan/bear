@@ -6,6 +6,7 @@ gem 'carrierwave'
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem 'geocoder'
+gem 'devise' 
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
