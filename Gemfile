@@ -7,6 +7,7 @@ gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem 'geocoder'
 gem 'devise' 
+gem "cancan"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -1,12 +1,16 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, :except => [:show, :index]
 
   # GET /restaurants
   # GET /restaurants.json
   def index
+    if params[:search].present?
+        @restaurants = restaurant.near(params[:search],50, :order=> :distance)
+    else
     @restaurants = Restaurant.all
+    end
   end
-
 
   # GET /restaurants/1
   # GET /restaurants/1.json
@@ -25,11 +29,9 @@ class RestaurantsController < ApplicationController
   # POST /restaurants
   # POST /restaurants.json
   def create
-    @restaurant = Restaurant.new(restaurant_params)    
+    @restaurant = Restaurant.new(restaurant_params)
 
     respond_to do |format|
-
-
       if @restaurant.save
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
         format.json { render :show, status: :created, location: @restaurant }
@@ -42,11 +44,11 @@ class RestaurantsController < ApplicationController
 
   # PATCH/PUT /restaurants/1
   # PATCH/PUT /restaurants/1.json
- def update
+  def update
     respond_to do |format|
       if @restaurant.update(restaurant_params)
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
-        format.json { render :show, status: :ok, address: @restaurant }
+        format.json { render :show, status: :ok, location: @restaurant }
       else
         format.html { render :edit }
         format.json { render json: @restaurant.errors, status: :unprocessable_entity }
@@ -72,6 +74,6 @@ class RestaurantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :address, :description, :phone, :image, :menu)
+      params.require(:restaurant).permit( :name, :address, :description, :phone, :image, :menu)
     end
 end

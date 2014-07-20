@@ -5,7 +5,21 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-  </head> 
+
+  </head class='container'> 
+
+
+
+
+ <body> 
+
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
 
   <div class="navbar navbar-fixed-top" style=" font-size: 12px; ">
     <div class="navbar-inner">
@@ -37,16 +51,8 @@
   </div>
 
 
-  <body class="container">
+ 
 
-
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
 
     <%= yield %>
 

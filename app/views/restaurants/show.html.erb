@@ -15,14 +15,14 @@
   <dd><%= @restaurant.phone %></dd>
   <br /> 
   <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
-  <dd><%= image_tag(@restaurant.image_url, :width => 300) if @restaurant.image.present? %></dd>
+  <dd><%= image_tag(@restaurant.image_url, :width => 500, :class => "corner") if @restaurant.image.present? %></dd>
 <br /> 
   <dt><strong><%= model_class.human_attribute_name(:menu) %>:</strong></dt>
-  <dd><%= image_tag(@restaurant.menu_url, :width => 300) if @restaurant.menu.present? %></dd>
+  <dd><%= image_tag(@restaurant.menu_url, :width => 300, :class => "corner") if @restaurant.menu.present? %></dd>
 
  <dt><strong><%= model_class.human_attribute_name(:map) %>:</strong></dt>
  <br /> 
-    <dd> <%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x300&sensor=false&zoom=16&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}" %>
+    <dd> <%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x300&sensor=false&zoom=16&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}", :class => "corner" %>
     </dd> 
  </dl> 
 

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users, :path_names => {:sign_up => "register"}
-  resources :restaurants
+   resources :restaurants
 root "restaurants#index"
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
