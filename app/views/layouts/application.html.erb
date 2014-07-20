@@ -1,25 +1,7 @@
+<!DOCTYPE html>
 <html>
   <head>
-
-  <title>Bear</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-
-  </head class='container'> 
-
-
-
-
- <body> 
-
-  <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-
-  <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
+  </head> 
 
   <div class="navbar navbar-fixed-top" style=" font-size: 12px; ">
     <div class="navbar-inner">
@@ -37,13 +19,7 @@
             <li><%= link_to "Contact moi" %></li>
           </ul>
             <ul style="float: right; margin: 10px">
-              <% if user_signed_in? %> 
-              Signed in as <%= current_user.email %>. Not you? 
-              <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> 
-              <% else %> 
-              <%= link_to "Sign up", new_user_registration_path %> or 
-              <%= link_to "Sign in", new_user_session_path %> 
-              <% end %> 
+              
             </ul> 
         </div>
       </div>
@@ -51,8 +27,20 @@
   </div>
 
 
- 
+  <title>Lab1</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  <body class="container">
 
+
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
 
     <%= yield %>
 

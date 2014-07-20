@@ -1,7 +1,7 @@
 <%- model_class = Restaurant -%>
 
 <div class="page-header">
-  <h1 align= "center">Grea...   eats<%= image_tag "food.png", :width => 110, :class => "corner"%> <h1>
+  <h1 align= "center">Grea...   eats<%= image_tag "pig.png", :width => 110, :class => "corner"%> <h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -32,7 +32,7 @@
         <td><%= restaurant.phone %></td>
         <td><%= restaurant.created_at.strftime("%a %b %y")  %></td>
         <td><%= image_tag(restaurant.menu_url, :width => 100, :class => "cornerSm") if restaurant.menu.present? %></td>
-        
+
         <td>      
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_restaurant_path(restaurant), :class => 'btn btn-mini' %>
@@ -54,7 +54,8 @@
   <br /> 
   <h4> Find us in New York </h4> 
     <div class="iframe"> 
-      <iframe  src="https://www.google.com/maps/embed/v1/place?q=Financial%20District%2C%20NY%2C%20United%20States&key=AIzaSyBgjl5OaoXkgZ-wwnltwlyZhhgLYn0_kvE", ></iframe>
+      <div class="iframe"> 
+      <iframe  src="https://www.google.com/maps/embed/v1/place?q=Financial%20District%2C%20NY%2C%20United%20States&key=AIzaSyCiEPXZzGR6FL0IqoWaVDiwL10lpYp4cyo", ></iframe>
     </div> 
 
         <div id="map" style="position: relative; background-color: rgb(229, 227, 223); overflow: hidden;">

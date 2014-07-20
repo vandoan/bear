@@ -15,7 +15,7 @@
  */
 
 
-body { padding-top: 60px; 
+body { padding-top: 30px; 
 		padding-bottom:30px;
 	}
 footer { margin-top: 10px;
@@ -70,3 +70,6 @@ td {
     width:100%;
 }
 
+body {
+	margin: 5px; 
+}
