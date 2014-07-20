@@ -7,26 +7,48 @@
 
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @restaurant.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
+  <dt>
+    <strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
   <dd><%= @restaurant.address %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:about) %>:</strong></dt>
+  <dt>
+    <strong><%= model_class.human_attribute_name(:about) %>:</strong></dt>
   <dd><%= @restaurant.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:number) %>:</strong></dt>
+  <dt>
+    <strong><%= model_class.human_attribute_name(:number) %>:
+    </strong></dt>
   <dd><%= @restaurant.phone %></dd>
   <br /> 
-  <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
-  <dd><%= image_tag(@restaurant.image_url, :width => 500, :class => "corner") if @restaurant.image.present? %></dd>
-<br /> 
-  <dt><strong><%= model_class.human_attribute_name(:menu) %>:</strong></dt>
-  <dd><%= image_tag(@restaurant.menu_url, :width => 300, :class => "corner") if @restaurant.menu.present? %></dd>
+  <dt>
+    <strong><%= model_class.human_attribute_name(:image) %>:
+  </strong>
+  </dt>
+ 
+   <dd align=left> <%= image_tag(@restaurant.image_url, :height => 500, :class => "corner") if @restaurant.image.present? %>
+    </dd>       
+  </dl>
 
- <dt><strong><%= model_class.human_attribute_name(:map) %>:</strong></dt>
- <br /> 
-    <dd> <%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x300&sensor=false&zoom=16&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}", :class => "corner" %>
-    </dd> 
- </dl> 
+    <div style="display:inline-block;">
+      <div class="span5" style="align:left; text-align:center;">
+        <div> 
+          <strong>
+          <%= model_class.human_attribute_name("Menu") %></strong>
+        </div>
+        <div>
+          <%= image_tag(@restaurant.menu_url, :width => 400, :class => "corner") if @restaurant.menu.present? %>
+        </div>
+      </div> 
+      <div class="span5" style= "align: right; text-align:center;">
+        <div> 
+          <strong><%= model_class.human_attribute_name("Location") %>
+          </strong>
+        </div>
+        <div> 
+          <%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x300&sensor=false&zoom=16&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}", :height => 400,:class => "corner" %>
+        </div> 
+      </div>
+    </div>  
 
-<div class="form-actions">
+<div class="form-actions" style="align:center;">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               restaurants_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
