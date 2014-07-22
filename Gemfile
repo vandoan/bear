@@ -8,6 +8,7 @@ gem 'less-rails'
 gem 'geocoder'
 gem 'devise' 
 gem "cancan"
+gem 'role_model'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
