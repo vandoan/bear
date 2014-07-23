@@ -35,7 +35,8 @@ td {
 .cornerSm {
     border: 3px solid #fff;
     border-radius: 7px;
-    max-height: 50px; 
+    max-height: 70px; 
+    width: auto; 
     overflow: hidden; 
 }
 

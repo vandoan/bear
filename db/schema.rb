@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140721225505) do
+ActiveRecord::Schema.define(version: 20140722234400) do
 
   create_table "owners", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -40,10 +40,12 @@ ActiveRecord::Schema.define(version: 20140721225505) do
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image"
+    t.integer  "user_id"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "owner_id"
     t.string   "username"
+    t.string   "image"
     t.string   "menu"
   end
 
@@ -61,7 +63,6 @@ ActiveRecord::Schema.define(version: 20140721225505) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
-    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
