@@ -26,42 +26,46 @@ class RestaurantsController < ApplicationController
 
   # POST /restaurants
   # POST /restaurants.json
+
+
   def create
-        @restaurant = current_user.restaurants.new(restaurant_params)
-         respond_to do |format|
+    @restaurant = Restaurant.new(restaurant_params)
+    if  @restaurant.user or @restaurant.owner = current_user or current_owner
       if @restaurant.save
-        format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
-        format.json { render :show, status: :created, location: @restaurant }
+        flash[:notice] = "Restaurant created successfully."
+        redirect_to(action: 'index')
       else
-        format.html { render :new }
-        format.json { render json: @restaurant.errors, status: :unprocessable_entity }
+        redirect_to restaurants_path, notice: 'That post is not yours! You cannot delete it.'
+        flash[:error] = @restaurant.errors.full_messages[0]
+        render('new')
       end
+    else
+      flash[:error] = "Please login to create a new entry."
+      render('new')
     end
   end
+
 
   # PATCH/PUT /restaurants/1
   # PATCH/PUT /restaurants/1.json
- def update
+ 
 
-    respond_to do |format|
-       if @restaurant.user != current_user
-      redirect_to restaurants_path, notice: 'That post is not yours! You cannot edit it.'
-      elsif condition
-         
-       @restaurant.update(restaurant_params)
-        format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
-        format.json { render :show, status: :ok, address: @restaurant }
+    def update
+     if @restaurant.user != current_user or current_owner
+ 
+      if @restaurant.update(restaurant_params)
+        redirect_to @restaurant, notice: 'Restaurant was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @restaurant.errors, status: :unprocessable_entity }
+        render 'edit'
       end
-    end
   end
+end 
+
 
   # DELETE /restaurants/1
   # DELETE /restaurants/1.json
   def destroy
-    if @restaurant.user != current_user
+    if @restaurant.user != current_user or current_owner
       redirect_to restaurants_path, notice: 'That post is not yours! You cannot delete it.'
     else 
       @restaurant.destroy

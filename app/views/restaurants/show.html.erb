@@ -50,7 +50,7 @@
 
 
 <div class="form-actions" style="align:center;">
-  <% if user_signed_in? %> 
+  <% if  owner_signed_in? %> 
 
   <%= link_to t('.back', :default => t("helpers.links.back")),
               restaurants_path, :class => 'btn'  %>
@@ -61,5 +61,6 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
-              <% end %> 
+
+               <% end %> 
 </div> 

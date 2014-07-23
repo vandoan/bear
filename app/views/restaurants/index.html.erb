@@ -7,15 +7,13 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:image) %></th>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
+     <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:location) %></th>
       <th><%= model_class.human_attribute_name(:about) %></th>
       <th><%= model_class.human_attribute_name(:number) %></th>
       <th><%= model_class.human_attribute_name(:created_on) %></th>
       <th><%= model_class.human_attribute_name(:menu) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
+     </tr>
 
   </thead>
   <tbody>
@@ -25,8 +23,7 @@
       <tr>
 
         <td><%= link_to(image_tag(restaurant.image_url, :width => 100, :class => "cornerSm"), restaurant_path(restaurant)) if restaurant.image %></td>
-        <td><%= link_to restaurant.id, restaurant_path(restaurant) %></td>
-        <td><%= restaurant.name %></td>
+         <td><%= restaurant.name %></td>
         <td><%= restaurant.address %></td>
         <td><%= restaurant.description %></td>
         <td><%= restaurant.phone %></td>
@@ -34,16 +31,11 @@
         <td><%= image_tag(restaurant.menu_url, :width => 100, :class => "cornerSm") if restaurant.menu.present? %></td>
          <td>      
  
-          <% if user_signed_in? %> 
+          <% if user_signed_in? or owner_signed_in? %> 
  
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_restaurant_path(restaurant), :class => 'btn btn-mini' %>
 
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      restaurant_path(restaurant),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
          </td>
       </tr>
     <% end %>
@@ -51,7 +43,7 @@
 
   </tbody>
 </table>
-<% if user_signed_in? %> 
+<% if user_signed_in? or owner_signed_in? %> 
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_restaurant_path,
