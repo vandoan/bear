@@ -31,19 +31,15 @@
         <td><%= image_tag(restaurant.menu_url, :width => 100, :class => "cornerSm") if restaurant.menu.present? %></td>
          <td>      
  
-          <% if user_signed_in? or owner_signed_in? %> 
- 
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_restaurant_path(restaurant), :class => 'btn btn-mini' %>
 
+ 
          </td>
       </tr>
-    <% end %>
 <% end %> 
 
   </tbody>
 </table>
-<% if user_signed_in? or owner_signed_in? %> 
+<% if owner_signed_in? %> 
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_restaurant_path,

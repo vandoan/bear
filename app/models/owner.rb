@@ -4,8 +4,7 @@ class Owner < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-   has_many :restaurant
-
+ 
 
   attr_accessor :login
   has_many :restaurant

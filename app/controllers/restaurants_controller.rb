@@ -30,7 +30,7 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    if  @restaurant.user or @restaurant.owner = current_user or current_owner
+    if   @restaurant.owner = current_owner
       if @restaurant.save
         flash[:notice] = "Restaurant created successfully."
         redirect_to(action: 'index')
@@ -44,28 +44,29 @@ class RestaurantsController < ApplicationController
       render('new')
     end
   end
-
+ 
 
   # PATCH/PUT /restaurants/1
   # PATCH/PUT /restaurants/1.json
  
 
     def update
-     if @restaurant.user != current_user or current_owner
- 
-      if @restaurant.update(restaurant_params)
+     if @restaurant.owner !=  current_owner
+        redirect_to restaurants_path, notice: 'That post is not yours! You cannot delete it.'
+
+      elsif @restaurant.update(restaurant_params)
         redirect_to @restaurant, notice: 'Restaurant was successfully updated.'
       else
         render 'edit'
       end
   end
-end 
+ 
 
 
   # DELETE /restaurants/1
   # DELETE /restaurants/1.json
   def destroy
-    if @restaurant.user != current_user or current_owner
+    if @restaurant.owner != current_owner
       redirect_to restaurants_path, notice: 'That post is not yours! You cannot delete it.'
     else 
       @restaurant.destroy
@@ -83,6 +84,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :address, :description, :phone, :image, :menu, :user, :user_id)
+      params.require(:restaurant).permit(:name, :address, :description, :phone, :image, :menu, :user_id, owners_attributes: [:owner_id], users_attributes: [:user_id])
     end
 end

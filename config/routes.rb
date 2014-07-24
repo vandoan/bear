@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :reservations
+
   devise_for :owners
   devise_for :users, :path_names => {:sign_up => "register"}
    resources :restaurants

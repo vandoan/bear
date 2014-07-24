@@ -9,6 +9,7 @@ gem 'geocoder'
 gem 'devise' 
 gem "cancan"
 gem 'role_model'
+gem 'parsley-rails'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
