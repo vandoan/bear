@@ -8,5 +8,8 @@ class Restaurant < ActiveRecord::Base
 
 	belongs_to :user
 	belongs_to :owner
+	has_many :reservation
+	belongs_to :reservation
+
 
 end

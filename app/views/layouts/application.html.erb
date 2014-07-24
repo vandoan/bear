@@ -4,7 +4,7 @@
   </head> 
   <body class="container">
 
-  <div class="navbar navbar-fixed-top" style=" font-size: 12px; ">
+  <div class="navbar navbar-fixed-top" style=" font-size: 12px;">
     <div class="navbar-inner">
       <div class="container">
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -12,31 +12,37 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <%= link_to "Food-dopia", restaurants_path, { :class=>"brand"} %> 
-        <div class="nav-collapse">
+        <%= link_to "Food-dopia", restaurants_path, { :class=>"brand", :style => "color:#FF9933;"} %> 
+        <div class="nav-collapse" >
           <ul class="nav">
-             <li><%= link_to "Daring dishes" %></li>
-            <li><%= link_to "Sweet tooth" %></li>
-            <li><%= link_to "Contact moi" %></li>
+            <li ><%= link_to "Daring dishes", "#", {:style => "color:#4D94B8;"} %></li>
+            <li><%= link_to "Sweet tooth", "#", {:style => "color:#4D94B8;"} %></li>
+            <li><%= link_to "Contact moi", "#", {:style => "color:#4D94B8;"} %></li>
           </ul>
-            <ul style="float: right; margin: 10px">
-               <ul style="align:right;">
-                
-   <% if user_signed_in? %>   Foodie: <strong><%= current_user.username %> 
-   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+          <ul style="float: right; margin: 1px">
+            <ul style="align:right; color:#3385FF; font-size: 14px;">
+              
+              <ul> 
+             <% if user_signed_in? %>   foodi: 
+               <%= current_user.username %> 
 
+               <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+               <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 
+                  <% elsif owner_signed_in? %> foodi:  
+                  <%= current_owner.username %>
+                </ul> 
+                <ul style="font-size: 11px;"> 
 
- <% elsif owner_signed_in? %> Foodie:  <%= current_owner.username %>
-</strong>
-    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-   <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
- <% end %>
- </ul> 
+                    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+                    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                    <% else %>
+                    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+                    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+                 <% end %>
+               </ul> 
+                 </li 
+              </ul> 
             </ul> 
         </div>
       </div>
