@@ -1,0 +1,23 @@
+<%= form_for :reservations, :html => {:multipart => true} do |builder| %>
+
+
+  <div class="field">
+    <%= builder.label :email %><br>
+    <%= builder.text_field :email %>
+  </div>
+  <div class="field">
+    <%= builder.label :date %><br>
+    <%= builder.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= builder.label :message %><br>
+    <%= builder.text_area :message %>
+  </div>
+  <div class="field">
+    <%= builder.label :restaurant %><br>
+    <%= builder.text_field :restaurant %>
+  </div>
+  <div class="actions">
+    <%= builder.submit %>
+  </div>
+<% end %>
