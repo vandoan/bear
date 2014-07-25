@@ -1,16 +1,5 @@
-<%= form_for :reservations, :html => {:multipart => true} do |builder| %>
-  <% if @reservations.errors.any? %>
-    <div id=" ">
-      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
-
-      <ul>
-      <% @reservation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for (Reservation.new), :html => {:multipart => true} do |builder| %>
+ 
   <div class="field">
     <%= builder.label :email %><br>
     <%= builder.text_field :email %>

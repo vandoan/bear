@@ -10,6 +10,19 @@ gem 'devise'
 gem "cancan"
 gem 'role_model'
 gem 'parsley-rails'
+gem 'rails_admin'
+
+group :development  do 
+	gem 'better_errors' 
+	gem 'binding_of_caller' 
+	gem 'pry-rails' 
+	gem 'pry-stack_explorer' 
+	gem 'pry-debugger'
+	gem 'annotate'
+	gem 'factory_girl_rails'
+
+end
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
