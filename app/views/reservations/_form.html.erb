@@ -1,5 +1,5 @@
 <%= form_for :reservations, :html => {:multipart => true} do |builder| %>
-  <% if @reservation.errors.any? %>
+  <% if @reservations.errors.any? %>
     <div id=" ">
       <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
 
@@ -28,7 +28,6 @@
     <%= builder.text_field :restaurant %>
   </div>
  
-
 <div class="form-actions">
     <%= builder.submit :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
