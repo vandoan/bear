@@ -7,7 +7,7 @@ class Owner < ActiveRecord::Base
  
 
   attr_accessor :login
-  has_many :restaurant
+  has_many :restaurants
 
 
 

@@ -6,10 +6,10 @@ class Restaurant < ActiveRecord::Base
 	after_validation :geocode 	# auto-fetch coordinates 
 
 
-	belongs_to :user
-	belongs_to :owner
-	has_many :reservation
-	belongs_to :reservation
+	belongs_to :users
+	belongs_to :owners
+	has_many :reservations
+	
 
 
 end

@@ -23,7 +23,7 @@
   </strong>
   </dt>
  
-   <dd align=left> <%= image_tag(@restaurant.image_url, :width => 600, :class => "corner") if @restaurant.image.present? %>
+   <dd align=left> <%= image_tag(@restaurant.image_url, :width => 400, :class => "corner") if @restaurant.image.present? %>
     </dd>       
   </dl>
 
@@ -34,7 +34,7 @@
           <%= model_class.human_attribute_name("Menu") %></strong>
         </div>
         <div>
-          <%= image_tag(@restaurant.menu_url, :width => 400, :class => "corner") if @restaurant.menu.present? %>
+          <%= image_tag(@restaurant.menu_url, :height => 400, :class => "corner") if @restaurant.menu.present? %>
         </div>
       </div> 
       <div class="span6" style= "align: right; text-align:center;">
@@ -62,8 +62,7 @@ Reservation</button>
           <%= render :partial => 'reservations/form' %> 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+     
       </div>
     </div>
   </div>
